@@ -33,7 +33,7 @@ public class Employee {
         if (this == o) return true;
         if (!(o instanceof Employee)) return false;
         Employee employee = (Employee) o;
-        return name.equals(employee.name) && surname.equals(employee.surname);
+        return Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname);
     }
 
     @Override
