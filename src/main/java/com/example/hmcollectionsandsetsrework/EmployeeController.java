@@ -16,18 +16,18 @@ private final EmpService empService;
         this.empService = empService;
     }
 
-    @GetMapping("/Employee")
+    @GetMapping("/employee")
     public String helloEmployee() {
         return "<h1> Добро пожаловать в сервис Работников </h1>";
     }
     @GetMapping("/add")
-    public Employee addEmployee(@RequestParam("name") String name, @RequestParam("surname") String surname){
+    public Employee addEmployee(@RequestParam String name, @RequestParam String surname){
         return empService.add(name,surname);
     } @GetMapping("/remove")
-    public Employee removeEmployee(@RequestParam("name") String name, @RequestParam("surname") String surname){
+    public Employee removeEmployee(@RequestParam String name, @RequestParam String surname){
         return empService.remove(name,surname);
     } @GetMapping("/find")
-    public Employee findEmployee(@RequestParam("name") String name, @RequestParam("surname") String surname){
+    public Employee findEmployee(@RequestParam String name, @RequestParam String surname){
         return empService.find(name,surname);
     }
     @GetMapping
