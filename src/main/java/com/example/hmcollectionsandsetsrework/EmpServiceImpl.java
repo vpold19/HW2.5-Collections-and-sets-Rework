@@ -1,7 +1,11 @@
 package com.example.hmcollectionsandsetsrework;
 
+import com.example.hmcollectionsandsetsrework.exception.EmployeeAlreadyAddedException;
+import com.example.hmcollectionsandsetsrework.exception.EmployeeNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -15,6 +19,9 @@ public class EmpServiceImpl implements EmpService {
     @Override
     public Employee add(String name, String surname) {
         Employee employee = new Employee(name, surname);
+        if(employeeList.contains(employee)){
+            throw new EmployeeAlreadyAddedException();
+        }
         employeeList.add(employee);
         return employee;
     }
@@ -26,7 +33,7 @@ public class EmpServiceImpl implements EmpService {
             employeeList.remove(employee);
             return employee;
         }
-        return null;
+        throw new EmployeeNotFoundException();
     }
 
     @Override
@@ -35,6 +42,11 @@ public class EmpServiceImpl implements EmpService {
         if (employeeList.contains(employee)) {
             return employee;
         }
-        return null;
+        throw new EmployeeNotFoundException();
+    }
+
+    @Override
+    public Collection<Employee> findAll() {
+        return new ArrayList<>(employeeList);
     }
 }

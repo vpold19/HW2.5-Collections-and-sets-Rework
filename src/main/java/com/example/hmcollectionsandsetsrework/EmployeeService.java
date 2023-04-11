@@ -10,8 +10,6 @@ import java.util.List;
 public class EmployeeService {
     public static void main(String[] args) {
 
-        List<List<List<Employee>>> employees = new ArrayList<>(Arrays.asList());
-
         List<Employee> employee = List.of(
                 new Employee("Рубен", "Громов"),
                 new Employee("Бенедикт", "Ковалёв"),
@@ -27,5 +25,7 @@ public class EmployeeService {
         System.out.println(employee);
 
 
+
     }
+
 }
