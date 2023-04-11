@@ -7,7 +7,7 @@ import java.util.List;
 public class EmployeeService {
     public static void main(String[] args) {
 
-       // List<Integer> employees = new ArrayList<>(Arrays.asList());
+        List<Integer> employees = new ArrayList<>(Arrays.asList());
 
         List<Employee> employee = List.of(
                 new Employee("Рубен", "Громов"),
