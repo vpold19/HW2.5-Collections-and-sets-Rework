@@ -16,7 +16,7 @@ public class EmployeeController {
         this.empService = empService;
     }
 
-    @GetMapping("/employee")
+    @GetMapping()
     public String helloEmployee() {
         return "<h1> Добро пожаловать в сервис Работников </h1>";
     }
