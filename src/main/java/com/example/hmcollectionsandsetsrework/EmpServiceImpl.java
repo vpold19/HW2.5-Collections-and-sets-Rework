@@ -19,16 +19,16 @@ public class EmpServiceImpl implements EmpService {
 
     @Override
     public Employee add(String name, String surname) {
-        Employee employee = new Employee(name, surname);
-            if (employeeList.contains(employee)) {
-          throw new EmployeeAlreadyAddedException();
-            }
-            employeeList.add(employee);
-            if (!employeeList.contains(employee)){
-                throw new EmployeeStorageIsFullException();
-            }
-            return employee;
+        if (employeeList.size() >= 10) {
+            throw new EmployeeStorageIsFullException("Нельзя добавить работника, привышен придел");
         }
+        Employee employee = new Employee(name, surname);
+        if (employeeList.contains(employee)) {
+            throw new EmployeeAlreadyAddedException();
+        }
+        employeeList.add(employee);
+        return employee;
+    }
 
     @Override
     public Employee remove(String name, String surname) {
