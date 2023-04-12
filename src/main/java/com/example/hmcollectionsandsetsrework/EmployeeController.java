@@ -16,11 +16,6 @@ public class EmployeeController {
         this.empService = empService;
     }
 
-    @GetMapping()
-    public String helloEmployee() {
-        return "<h1> Добро пожаловать в сервис Работников </h1>";
-    }
-
     @GetMapping("/add")
     public Employee addEmployee(@RequestParam String name, @RequestParam String surname) {
         return empService.add(name, surname);
