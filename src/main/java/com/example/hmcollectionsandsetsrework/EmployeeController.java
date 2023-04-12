@@ -10,9 +10,9 @@ import java.util.Collection;
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
-private final EmpService empService;
+    private final EmpService empService;
 
-    public EmployeeController( EmpService empService) {
+    public EmployeeController(EmpService empService) {
         this.empService = empService;
     }
 
@@ -20,18 +20,24 @@ private final EmpService empService;
     public String helloEmployee() {
         return "<h1> Добро пожаловать в сервис Работников </h1>";
     }
+
     @GetMapping("/add")
-    public Employee addEmployee(@RequestParam String name, @RequestParam String surname){
-        return empService.add(name,surname);
-    } @GetMapping("/remove")
-    public Employee removeEmployee(@RequestParam String name, @RequestParam String surname){
-        return empService.remove(name,surname);
-    } @GetMapping("/find")
-    public Employee findEmployee(@RequestParam String name, @RequestParam String surname){
-        return empService.find(name,surname);
+    public Employee addEmployee(@RequestParam String name, @RequestParam String surname) {
+        return empService.add(name, surname);
     }
+
+    @GetMapping("/remove")
+    public Employee removeEmployee(@RequestParam String name, @RequestParam String surname) {
+        return empService.remove(name, surname);
+    }
+
+    @GetMapping("/find")
+    public Employee findEmployee(@RequestParam String name, @RequestParam String surname) {
+        return empService.find(name, surname);
+    }
+
     @GetMapping
-    public Collection<Employee> findAll(){
+    public Collection<Employee> findAll() {
         return empService.findAll();
     }
 }
